@@ -1,3 +1,10 @@
+const express = require("express"),
+       app = express(),
+       port = process.env.PORT || 8080,
+       cors = require("cors");
+const bodyParser = require('body-parser');
+const fs = require("fs");
+
 const basicAuth = require("express-basic-auth");
 var { authenticator, upsertUser, cookieAuth } = require("./authentication");
 const auth = basicAuth({
@@ -5,13 +12,6 @@ const auth = basicAuth({
 });
 const cookieParser = require("cookie-parser");
 app.use(cookieParser("82e4e438a0705fabf61f9854e3b575af"));
-
-const express = require("express"),
-       app = express(),
-       port = process.env.PORT || 8080,
-       cors = require("cors");
-const bodyParser = require('body-parser');
-const fs = require("fs");
 
 //app.use(cors());
 app.use(cors({
